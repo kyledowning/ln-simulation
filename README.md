@@ -1,10 +1,12 @@
 # LN Simulation
 
-This directory contains Python modules for simulating a Lightning Network (LN) and generating transactions. Below you'll find instructions for usage, descriptions of each file, and example workflows.
+This directory contains Python modules for simulating a Lightning Network (LN) and generating transactions.
 
 ## Directory Contents
 - `network.py`: Core classes for nodes, channels, and the network graph. Handles payment routing and fee calculations.
+
 - `transaction_gen.py`: Utility for generating random transactions between nodes.
+
 - `simulation_single.py`: Script for running a single simulation, varying channel fees and recording results.
 
 ## Getting Started
@@ -12,20 +14,26 @@ This directory contains Python modules for simulating a Lightning Network (LN) a
 	 - Make sure you have Python 3.7+ installed.
 	 - Required packages: `numpy`, `matplotlib`, `pandas` (if plotting or data analysis is needed).
 	 - Install with pip:
+
+
 		 ```bash
 		 pip install numpy matplotlib pandas
 		 ```
 
 2. **Run a Simulation**
 	 - The main entry point is `simulation_single.py`.
+
 	 - Example:
+
 		 ```bash
 		 python simulation_single.py
 		 ```
+
 	 - This will create a network, vary the fee rate of a target channel, simulate transactions, and save results to `channel_fee_variation.csv`.
 
 3. **Generate Transactions**
 	 - Use `transaction_gen.py` to create random transactions for your network:
+
 		 ```python
 		 from transaction_gen import TransactionGenerator
 		 generator = TransactionGenerator(max_balance=100_000, num_transactions=2000)
@@ -34,6 +42,7 @@ This directory contains Python modules for simulating a Lightning Network (LN) a
 
 4. **Network Operations**
 	 - Use `network.py` to create nodes, channels, and route payments:
+
 		 ```python
 		 from network import Network, TransactionManager
 		 net = Network()
@@ -48,8 +57,11 @@ This directory contains Python modules for simulating a Lightning Network (LN) a
 ## File Descriptions
 ### network.py
 - **Node**: Represents a network participant.
+
 - **Channel**: Represents a payment channel between two nodes.
+
 - **Network**: Manages nodes and channels, finds payment paths, executes payments.
+
 - **TransactionManager**: Queues and simulates transactions.
 
 ### transaction_gen.py
@@ -63,6 +75,7 @@ This directory contains Python modules for simulating a Lightning Network (LN) a
 
 ## Tips
 - All classes and methods are documented with Python docstrings. Hover over function names in VS Code for descriptions.
+
 - You can modify parameters in `simulation_single.py` to change the number of nodes, transactions, or fee ranges.
 
 ## License

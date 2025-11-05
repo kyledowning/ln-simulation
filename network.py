@@ -1,11 +1,6 @@
-import random
-import transaction_gen
-
 
 class Node:
-    """
-    Represents a node in the Lightning Network simulation.
-    """
+    # Represents a node in the Lightning Network simulation.
     def __init__(self, node_id: str):
         """
         Initialize a Node with a unique identifier.
@@ -58,9 +53,7 @@ class Node:
 
 
 class Channel:
-    """
-    Represents a payment channel between two nodes.
-    """
+    # Represents a payment channel between two nodes.
     def __init__(self, node_a: Node, node_b: Node, capacity: int, balance_a: int, balance_b: int,
                  base_fee: int, fee_rate: float, channel_id: str):
         """
@@ -167,9 +160,7 @@ class Channel:
 
 
 class Network:
-    """
-    Represents the Lightning Network graph of nodes and channels.
-    """
+    # Represents the Lightning Network graph of nodes and channels.
     def __init__(self):
         """
         Initialize an empty Network.
@@ -331,9 +322,7 @@ class Network:
 
 
 class TransactionManager:
-    """
-    Manages transactions and simulation for the Lightning Network.
-    """
+    # Manages transactions and simulation for the Lightning Network.
     def __init__(self, network: Network):
         """
         Initialize the TransactionManager.

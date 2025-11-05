@@ -1,3 +1,7 @@
+"""
+Script for running Lightning Network simulations and fee variation experiments.
+Creates a network, varies channel fees, simulates transactions, and records results.
+"""
 from network import Network, TransactionManager
 import random
 import transaction_gen
@@ -43,11 +47,11 @@ def createLNetwork(num_nodes: int, edge_prob: float) -> Network:
 
 
 if __name__ == "__main__":
-    num_nodes = 150
-    iterations = 1000
+    num_nodes = 100
+    iterations = 20
 
     # Create network once
-    network = createLNetwork(num_nodes=num_nodes, edge_prob=0.1)
+    network = createLNetwork(num_nodes=num_nodes, edge_prob=0.075)
     print(f"Created network: {len(network.nodes)} nodes, {len(network.channels)} channels")
 
     # Choose one specific channel to vary
@@ -55,7 +59,7 @@ if __name__ == "__main__":
     print(f"Target channel for fee modification: {target_channel_id}")
 
     transactions = transaction_gen.TransactionGenerator(
-        max_balance=100_000, num_transactions=2000
+        max_balance=100_000, num_transactions=5000
     ).generate_transactions(list(network.nodes.keys()))
 
     with open('channel_fee_variation.csv', 'w', newline='') as csvfile:

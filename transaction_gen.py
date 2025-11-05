@@ -1,6 +1,6 @@
-
 from random import random
 
+ # Generates random transactions for Lightning Network simulation.
 class TransactionGenerator:
     """
     Generates random transactions for Lightning Network simulation.
